@@ -46,8 +46,6 @@ typedef struct instruction_s
 typedef struct dlist_s
 {
 	int size;
-	int (*match) (const void *key1, const void *key2);
-	void (*destroy) (void *data);
 	stack_t *head;
 	stack_t *tail;
 } dlist_t
@@ -55,18 +53,18 @@ typedef struct dlist_s
 /* Double Linked List Functions*/
 void dlist_init (dlist_t *list, void (*destroy) (void *data));
 void dlist_destroy (dlist_t *list);
-int dlist_ins_next (dlist_t *list, stack_t *element, const void *data);
-int dlist_ins_prev (dlist_t *list, stack_t *element, const void *data);
-int dlist_remove (dlist_t *list, stack_t *element, void **data);
+int dlist_ins_next (dlist_t *list, stack_t *node, const unsigned int *data);
+int dlist_ins_prev (dlist_t *list, stack_t *node, const unsigned int *data);
+int dlist_remove (dlist_t *list, stack_t *node);
 
 /*Macros*/
 #define dlist_size(list) ((list)->size)
-#define dlist_head(list) ((list)->head)
-#define dlist_tail(list) ((list)->tail)
-#define dlist_is_head(element) ((element)->prev == NULL ? 1 : 0)
-#define dlist_is_tail(element) ((element)->next == NULL ? 1 : 0)
-#define dlist_data(element) ((element)->data)
-#define dlist_next(element) ((element)->next)
-#define dlist_prev(element) ((element)->prev)
+#define dlist_is_head(node) ((node)->prev == NULL ? 1 : 0)
+#define dlist_is_tail(node) ((node)->next == NULL ? 1 : 0)
+#define data(node) ((node)->data)
+#define next(node) ((node)->next)
+#define prev(node) ((node)->prev)
+#define next(node)_prev ((node)->next->prev)
+#define prev(node)_next ((node)->prev->next)
 
 #endif /* _MONTY_H_ */
