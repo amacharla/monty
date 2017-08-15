@@ -1,45 +1,43 @@
 #include "monty.h"
 #include <string.h>
 
-void dlist_init (dlist_t *list)
+void dlist_init(dlist_t *list)
 {
 	list->size = 0;
 	list->head = NULL;
 	list->tail = NULL;
 }
 
-void dlist_destroy (dlist_t *list)
+void dlist_destroy(dlist_t *list)
 {
-	void *data;
-
 	while (dlist_size(list) > 0) /* remove each element */
 		if (dlist_remove(list, list->tail) == 0)
 
 	memset(list, 0, sizeof(dlist_t));
 }
 
-int dlist_remove (dlist_t *list, struct_t *node)
+int dlist_remove (dlist_t *list, stack_t *node)
 {
-	if (element == NULL || dlist_size(list) == 0)
+	if (node == NULL || dlist_size(list) == 0)
 		return (-1);
 	/*remove element from list*/
 	if (node == list->head)/* handle removal from head of the list*/
 	{
-		list->head = next(node);
+		list->head = node->next;
 
 		if (list->head == NULL)
 			list->tail = NULL;
 		else
-			next(node)_prev = NULL;
+			node->next->prev = NULL;
 	}
 	else/* handle removal from other than head in list*/
 	{
-		prev(node)_next = next(node);
+		node->prev->next = node->next;
 
-		if (next(node) == NULL)
-			list->tail = prev(node);
+		if (node->next == NULL)
+			list->tail = node->prev;
 		else
-			next(node)_prev = prev(node);
+			node->next->prev = node->prev;
 	}
 	free(node);
 	list->size--;
@@ -47,18 +45,15 @@ int dlist_remove (dlist_t *list, struct_t *node)
 	return 0;
 }
 
-int dlist_ins_next (dlist_t *list, struct_t *node, const int data)
+int dlist_ins_end (dlist_t *list, const unsigned int data)
 {
-	struct_t *new_node;
+	stack_t *new_node, *node;
 
-	if (node == NULL && dlist_size(list)!= 0)
-		return (-1);
-
-	new_node = malloc(sizeof(struct_t))
+	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return (-1);
 	/* Add new element into dlist_t */
-	new_node->data = data;
+	new_node->n = data;
 
 	if (dlist_size(list) == 0)/*if list is empty*/
 	{
@@ -67,16 +62,13 @@ int dlist_ins_next (dlist_t *list, struct_t *node, const int data)
 		list->head->next = NULL;
 		list->tail = new_node;
 	}
-	else/* -prev(node)- -new_node- -next(node)- */
+	else/* -node->prev- -new_node- -node->next- */
 	{
-		new_node->next = next(node);
+		node = list->tail;
+		new_node->next = node->next;
 		new_node->prev = node;
-
-		if (next(node) == NULL)
-			list->tail = new_node;
-		else
-			next(node)_prev = new_node;
-		next(node) = new_node;
+		list->tail = new_node;
+		node->next = new_node;
 	}
 	list->size++;
 
@@ -84,18 +76,15 @@ int dlist_ins_next (dlist_t *list, struct_t *node, const int data)
 }
 
 
-int dlist_ins_prev (dlist_t *list, struct_t *node, const int data)
+int dlist_ins_beg (dlist_t *list, const unsigned int data)
 {
-	struct_t *new_node;
+	stack_t *new_node, *node;
 
-	if (node == NULL && dlist_size(list)!= 0)
-		return (-1);
-
-	new_node = malloc(sizeof(struct_t))
+	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return (-1);
 	/* Add new element into dlist_t */
-	new_node->data = data;
+	new_node->n = data;
 
 	if (dlist_size(list) == 0)/*if list is empty*/
 	{
@@ -104,16 +93,13 @@ int dlist_ins_prev (dlist_t *list, struct_t *node, const int data)
 		list->head->next = NULL;
 		list->tail = new_node;
 	}
-	else/* -prev(node)- -new_node- -next(node)- */
+	else/* -node->prev- -new_node- -node->next- */
 	{
+		node = list->head;
 		new_node->next = node;
-		new_node->prev = prev(node);
-
-		if (prev(node) == NULL)
-			list->head = new_node;
-		else
-			prev(node)_next = new_node;
-		prev(node) = new_node;
+		new_node->prev = node->prev;
+		list->head = new_node;
+		node->prev = new_node;
 	}
 	list->size++;
 

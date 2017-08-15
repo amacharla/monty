@@ -15,9 +15,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -30,16 +30,14 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /* Double Linked List Implementation */
 /**
  * struct dlist_s - holds metadata about list
  * @size: size of double linked list
- * @match: function pointer
- * @destory: function pointer
  * @head: points to head of list
  * @tail: points to tail of list
  */
@@ -48,23 +46,20 @@ typedef struct dlist_s
 	int size;
 	stack_t *head;
 	stack_t *tail;
-} dlist_t
+} dlist_t;
 
 /* Double Linked List Functions*/
-void dlist_init (dlist_t *list, void (*destroy) (void *data));
-void dlist_destroy (dlist_t *list);
-int dlist_ins_next (dlist_t *list, stack_t *node, const unsigned int *data);
-int dlist_ins_prev (dlist_t *list, stack_t *node, const unsigned int *data);
-int dlist_remove (dlist_t *list, stack_t *node);
+void dlist_init(dlist_t *list);
+void dlist_destroy(dlist_t *list);
+int dlist_ins_end(dlist_t *list, const unsigned int data);
+int dlist_ins_beg(dlist_t *list, const unsigned int data);
+int dlist_remove(dlist_t *list, stack_t *node);
 
+/* Functions.c */
+void myexit(int code, int linenum, char *string);
 /*Macros*/
 #define dlist_size(list) ((list)->size)
 #define dlist_is_head(node) ((node)->prev == NULL ? 1 : 0)
 #define dlist_is_tail(node) ((node)->next == NULL ? 1 : 0)
-#define data(node) ((node)->data)
-#define next(node) ((node)->next)
-#define prev(node) ((node)->prev)
-#define next(node)_prev ((node)->next->prev)
-#define prev(node)_next ((node)->prev->next)
 
 #endif /* _MONTY_H_ */
