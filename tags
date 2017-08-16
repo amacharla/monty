@@ -6,25 +6,22 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 FLAGS	Makefile	/^FLAGS = -Wall -Werror -Wextra -pedantic -g$/;"	m
 _MONTY_H_	monty.h	2;"	d
-dlist_destroy	dlist.c	/^void dlist_destroy(dlist_t *list)$/;"	f
-dlist_init	dlist.c	/^void dlist_init(dlist_t *list)$/;"	f
-dlist_ins_beg	dlist.c	/^int dlist_ins_beg (dlist_t *list, const unsigned int data)$/;"	f
-dlist_ins_end	dlist.c	/^int dlist_ins_end (dlist_t *list, const unsigned int data)$/;"	f
-dlist_is_head	monty.h	60;"	d
-dlist_is_tail	monty.h	61;"	d
-dlist_remove	dlist.c	/^int dlist_remove (dlist_t *list, stack_t *node)$/;"	f
-dlist_s	monty.h	/^typedef struct dlist_s$/;"	s
-dlist_size	monty.h	59;"	d
-dlist_t	monty.h	/^} dlist_t;$/;"	t	typeref:struct:dlist_s
+dlist_destroy	dlist.c	/^void dlist_destroy(stack_t **stack)$/;"	f
+dlist_init	dlist.c	/^void dlist_init(stack_t **stack)$/;"	f
+dlist_ins_beg	dlist.c	/^int dlist_ins_beg (stack_t **stack, const unsigned int data)$/;"	f
+dlist_ins_end	dlist.c	/^int dlist_ins_end (stack_t **stack, const unsigned int data)$/;"	f
+dlist_is_head	monty.h	48;"	d
+dlist_is_tail	monty.h	49;"	d
+dlist_remove	dlist.c	/^int dlist_remove (stack_t **stack, stack_t *node)$/;"	f
+dlist_size	monty.h	47;"	d
 f	monty.h	/^	void (*f)(stack_t **stack, unsigned int line_number);$/;"	m	struct:instruction_s
-head	monty.h	/^	stack_t *head;$/;"	m	struct:dlist_s
 instruction_s	monty.h	/^typedef struct instruction_s$/;"	s
 instruction_t	monty.h	/^} instruction_t;$/;"	t	typeref:struct:instruction_s
+main	main.c	/^int main(int ac, char **av)$/;"	f
+myexit	functions.c	/^void myexit(int code, int linenum, char *string)$/;"	f
 n	monty.h	/^	int n;$/;"	m	struct:stack_s
 next	monty.h	/^	struct stack_s *next;$/;"	m	struct:stack_s	typeref:struct:stack_s::stack_s
 opcode	monty.h	/^	char *opcode;$/;"	m	struct:instruction_s
 prev	monty.h	/^	struct stack_s *prev;$/;"	m	struct:stack_s	typeref:struct:stack_s::stack_s
-size	monty.h	/^	int size;$/;"	m	struct:dlist_s
 stack_s	monty.h	/^typedef struct stack_s$/;"	s
 stack_t	monty.h	/^} stack_t;$/;"	t	typeref:struct:stack_s
-tail	monty.h	/^	stack_t *tail;$/;"	m	struct:dlist_s

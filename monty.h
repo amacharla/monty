@@ -34,26 +34,12 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* Double Linked List Implementation */
-/**
- * struct dlist_s - holds metadata about list
- * @size: size of double linked list
- * @head: points to head of list
- * @tail: points to tail of list
- */
-typedef struct dlist_s
-{
-	int size;
-	stack_t *head;
-	stack_t *tail;
-} dlist_t;
-
 /* Double Linked List Functions*/
-void dlist_init(dlist_t *list);
-void dlist_destroy(dlist_t *list);
-int dlist_ins_end(dlist_t *list, const unsigned int data);
-int dlist_ins_beg(dlist_t *list, const unsigned int data);
-int dlist_remove(dlist_t *list, stack_t *node);
+void dlist_init(stack_t *list);
+void dlist_destroy(stack_t *list);
+int dlist_ins_end(stack_t *list, const unsigned int data);
+int dlist_ins_beg(stack_t *list, const unsigned int data);
+int dlist_remove(stack_t *list, stack_t *node);
 
 /* Functions.c */
 void myexit(int code, int linenum, char *string);

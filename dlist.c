@@ -3,21 +3,27 @@
 
 void dlist_init(dlist_t *list)
 {
-	list->size = 0;
-	list->head = NULL;
-	list->tail = NULL;
+	dlist_t list;
+
+	list.size = 0;
+	list.head = NULL;
+	list.tail = NULL;
 }
 
-void dlist_destroy(dlist_t *list)
+void dlist_destroy()
 {
+	dlist_t list;
+
 	while (dlist_size(list) > 0) /* remove each element */
 		if (dlist_remove(list, list->tail) == 0)
 
 	memset(list, 0, sizeof(dlist_t));
 }
 
-int dlist_remove (dlist_t *list, stack_t *node)
+int dlist_remove (stack_t *node)
 {
+	dlist_t list;
+
 	if (node == NULL || dlist_size(list) == 0)
 		return (-1);
 	/*remove element from list*/
