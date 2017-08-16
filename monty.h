@@ -57,6 +57,8 @@ int dlist_remove(dlist_t *list, stack_t *node);
 
 /* Functions.c */
 void myexit(int code, int linenum, char *string);
+int run_opcode(char *buf);
+int chk_int(char *x);
 /*Macros*/
 #define dlist_size(list) ((list)->size)
 #define dlist_is_head(node) ((node)->prev == NULL ? 1 : 0)
