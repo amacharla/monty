@@ -1,5 +1,7 @@
 #include "monty.h"
 
+extern dlist_t gstruct;
+
 void myexit(int code, int linenum, char *string)
 {
 	switch(code)
@@ -17,10 +19,10 @@ void myexit(int code, int linenum, char *string)
 	}
 
 }
-size_t pall(stack_t *h)
+size_t pall(void)
 {
 	unsigned int i = 0;
-	stack_t *list = h;
+	stack_t *list = gstruct.head;
 
 	for (; list; list = list->next, i++)
 	{
@@ -28,9 +30,9 @@ size_t pall(stack_t *h)
 	}
 	return (i);
 }
-size_t pint(stack_t *h)
+size_t pint(void)
 {
-	stack_t *list = h;
+	stack_t *list = gstruct.head;
 
 	printf("%d\n", list->n);
 
