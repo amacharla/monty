@@ -17,3 +17,22 @@ void myexit(int code, int linenum, char *string)
 	}
 
 }
+size_t pall(stack_t *h)
+{
+	unsigned int i = 0;
+	stack_t *list = h;
+
+	for (; list; list = list->next, i++)
+	{
+		printf("%d\n", list->n);
+	}
+	return (i);
+}
+size_t pint(stack_t *h)
+{
+	stack_t *list = h;
+
+	printf("%d\n", list->n);
+
+	return (0);
+}
