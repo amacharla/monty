@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <strings.h>
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -33,21 +35,31 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct dlist_s - global structure to hold data
+ * @size: size of double linked list
+ * @head: pointer to the head of double linked list
+ * @tail: pointer to the tail of double linked list
+ */
+typedef struct dlist_s
+{
+	size_t size;
+	stack_t *head;
+	stack_t *tail;
+} dlist_t;
+
+extern dlist_t gstruct;
 
 /* Double Linked List Functions*/
-void dlist_init(stack_t *list);
-void dlist_destroy(stack_t *list);
-int dlist_ins_end(stack_t *list, const unsigned int data);
-int dlist_ins_beg(stack_t *list, const unsigned int data);
-int dlist_remove(stack_t *list, stack_t *node);
+void dlist_init(void);
+void dlist_destroy(void);
+int dlist_ins_end(const unsigned int data);
+int dlist_ins_beg(const unsigned int data);
+int dlist_remove(stack_t *node);
 
 /* Functions.c */
 void myexit(int code, int linenum, char *string);
 int run_opcode(char *buf);
 int chk_int(char *x);
-/*Macros*/
-#define dlist_size(list) ((list)->size)
-#define dlist_is_head(node) ((node)->prev == NULL ? 1 : 0)
-#define dlist_is_tail(node) ((node)->next == NULL ? 1 : 0)
 
 #endif /* _MONTY_H_ */
