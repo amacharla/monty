@@ -1,22 +1,22 @@
 #include "monty.h"
 #include <string.h>
 
-void dlist_init(dlist_t *list)
+void dlist_init(stack_t **stack)
 {
 	list->size = 0;
 	list->head = NULL;
 	list->tail = NULL;
 }
 
-void dlist_destroy(dlist_t *list)
+void dlist_destroy(stack_t **stack)
 {
 	while (dlist_size(list) > 0) /* remove each element */
 		if (dlist_remove(list, list->tail) == 0)
 
-	memset(list, 0, sizeof(dlist_t));
+	memset(list, 0, sizeof(stack_t));
 }
 
-int dlist_remove (dlist_t *list, stack_t *node)
+int dlist_remove (stack_t **stack, stack_t *node)
 {
 	if (node == NULL || dlist_size(list) == 0)
 		return (-1);
@@ -45,14 +45,14 @@ int dlist_remove (dlist_t *list, stack_t *node)
 	return 0;
 }
 
-int dlist_ins_end (dlist_t *list, const unsigned int data)
+int dlist_ins_end (stack_t **stack, const unsigned int data)
 {
 	stack_t *new_node, *node;
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return (-1);
-	/* Add new element into dlist_t */
+	/* Add new element into stack_t */
 	new_node->n = data;
 
 	if (dlist_size(list) == 0)/*if list is empty*/
@@ -76,14 +76,14 @@ int dlist_ins_end (dlist_t *list, const unsigned int data)
 }
 
 
-int dlist_ins_beg (dlist_t *list, const unsigned int data)
+int dlist_ins_beg (stack_t **stack, const unsigned int data)
 {
 	stack_t *new_node, *node;
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return (-1);
-	/* Add new element into dlist_t */
+	/* Add new element into stack_t */
 	new_node->n = data;
 
 	if (dlist_size(list) == 0)/*if list is empty*/
