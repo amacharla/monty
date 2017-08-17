@@ -1,5 +1,8 @@
 #include "monty.h"
 #include <string.h>
+/**
+ * dlist_init - initializes doubly linked list
+ */
 void dlist_init(void)
 {
 	gs.size = 0;
@@ -9,6 +12,11 @@ void dlist_init(void)
 	gs.fd = NULL;
 	gs.buffer = NULL;
 }
+/**
+ * dlist_remove - removes node from doubly linked list
+ * @node: stack to be removed
+ * Return: 0 on sucess
+ */
 
 int dlist_remove(stack_t *node)
 {
@@ -36,9 +44,13 @@ int dlist_remove(stack_t *node)
 	free(node);
 	gs.size--;
 
-	return 0;
+	return (0);
 }
-
+/**
+ * dlist_ins_end - adds node to the end ofdoubly linked list
+ * @data: int to be stored in node
+ * Return: 0 on sucess
+ */
 int dlist_ins_end(const unsigned int data)
 {
 	stack_t *new_node, *node;
@@ -68,7 +80,11 @@ int dlist_ins_end(const unsigned int data)
 
 	return (0);
 }
-
+/**
+ * dlist_ins_beg - adds node to beginning of doubly linked list
+ * @data: int to be stored in node
+ * Return: 0 on sucess
+ */
 
 int dlist_ins_beg(const unsigned int data)
 {
