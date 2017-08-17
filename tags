@@ -1,38 +1,47 @@
-Barbier	README.md	2
-FLAGS	Makefile	/^FLAGS = -Wall -Werror -Wextra -pedantic -g$/
-LIFO	README.md	2
-MMakefile	Makefile	/^main:$/
-Mmain	main.c	/^int main(int ac, char **av)$/
-Mtest	test.c	/^int main(void)$/
-Stacks	README.md	2
-_MONTY_H_	monty.h	2
-all	Makefile	/^all: main$/
-amp	README.md	2
-chk_int	run_opcode.c	/^int chk_int(const char *argint)$/
-dlist_destroy	dlist.c	/^void dlist_destroy(void)$/
-dlist_init	dlist.c	/^void dlist_init(void)$/
-dlist_ins_beg	dlist.c	/^int dlist_ins_beg(const unsigned int data)$/
-dlist_ins_end	dlist.c	/^int dlist_ins_end(const unsigned int data)$/
-dlist_remove	dlist.c	/^int dlist_remove(stack_t *node)$/
-dlist_s	monty.h	43
-dlist_t	monty.h	49
-f	monty.h	/^	void (*f)(stack_t **stack, unsigned int line_numb/
-head	monty.h	47
-instruction_s	monty.h	32
-instruction_t	monty.h	36
-ln	monty.h	46
-myexit	functions.c	/^void myexit(int code, char *string)$/
-n	monty.h	19
-next	monty.h	21
-opcode	monty.h	34
-pall	functions.c	/^void pall(void)$/
-pint	functions.c	/^void pint(void)$/
-prev	monty.h	20
-r	Makefile	/^r: main$/
-run_opcode	run_opcode.c	/^int run_opcode(char *buf)$/
-size	monty.h	45
-stack_s	monty.h	17
-stack_t	monty.h	22
-t	Makefile	/^t: test$/
-tail	monty.h	48
-test	Makefile	/^test:$/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FLAGS	Makefile	/^FLAGS = -Wall -Werror -Wextra -pedantic -g$/;"	m
+_MONTY_H_	monty.h	2;"	d
+_add	mathfunc.c	/^void _add(stack_t **head, unsigned int data)$/;"	f
+_div	mathfunc.c	/^void _div(stack_t **head, unsigned int data)$/;"	f
+_mod	mathfunc.c	/^void _mod(stack_t **head, unsigned int data)$/;"	f
+_mul	mathfunc.c	/^void _mul(stack_t **head, unsigned int data)$/;"	f
+_sub	mathfunc.c	/^void _sub(stack_t **head, unsigned int data)$/;"	f
+buffer	monty.h	/^	char *buffer;$/;"	m	struct:dlist_s
+chk_int	run_opcode.c	/^int chk_int(const char *argint)$/;"	f
+dlist_destroy	main.c	/^void dlist_destroy(void)$/;"	f
+dlist_init	dlist.c	/^void dlist_init(void)$/;"	f
+dlist_ins_beg	dlist.c	/^int dlist_ins_beg(const unsigned int data)$/;"	f
+dlist_ins_end	dlist.c	/^int dlist_ins_end(const unsigned int data)$/;"	f
+dlist_remove	dlist.c	/^int dlist_remove(stack_t *node)$/;"	f
+dlist_s	monty.h	/^typedef struct dlist_s$/;"	s
+dlist_t	monty.h	/^} dlist_t;$/;"	t	typeref:struct:dlist_s
+f	monty.h	/^	void (*f)(stack_t **stack, unsigned int line_number);$/;"	m	struct:instruction_s
+fd	monty.h	/^	FILE *fd;$/;"	m	struct:dlist_s
+gs	main.c	/^dlist_t gs;$/;"	v
+head	monty.h	/^	stack_t *head;$/;"	m	struct:dlist_s
+instruction_s	monty.h	/^typedef struct instruction_s$/;"	s
+instruction_t	monty.h	/^} instruction_t;$/;"	t	typeref:struct:instruction_s
+ln	monty.h	/^	unsigned int ln;$/;"	m	struct:dlist_s
+main	main.c	/^int main(int ac, char **av)$/;"	f
+main	test.c	/^int main(void)$/;"	f
+myexit	run_opcode.c	/^void myexit(int code, char *string)$/;"	f
+n	monty.h	/^	int n;$/;"	m	struct:stack_s
+next	monty.h	/^	struct stack_s *next;$/;"	m	struct:stack_s	typeref:struct:stack_s::stack_s
+nop	run_opcode.c	/^void nop(stack_t **head, unsigned int data)$/;"	f
+opcode	monty.h	/^	char *opcode;$/;"	m	struct:instruction_s
+pall	functions.c	/^void pall(stack_t **head, unsigned int data)$/;"	f
+pint	functions.c	/^void pint(stack_t **head, unsigned int data)$/;"	f
+pop	functions.c	/^void pop(stack_t **head, unsigned int data)$/;"	f
+prev	monty.h	/^	struct stack_s *prev;$/;"	m	struct:stack_s	typeref:struct:stack_s::stack_s
+push	functions.c	/^void push(stack_t **head, unsigned int data)$/;"	f
+run_opcode	run_opcode.c	/^int run_opcode(char *buf)$/;"	f
+size	monty.h	/^	size_t size;$/;"	m	struct:dlist_s
+stack_s	monty.h	/^typedef struct stack_s$/;"	s
+stack_t	monty.h	/^} stack_t;$/;"	t	typeref:struct:stack_s
+swap	functions.c	/^void swap(stack_t **head, unsigned int data)$/;"	f
+tail	monty.h	/^	stack_t *tail;$/;"	m	struct:dlist_s

@@ -21,7 +21,6 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-
 /**
  * struct instruction_s - opcoode and its function
  * @opcode: the opcode
@@ -53,24 +52,30 @@ typedef struct dlist_s
 
 extern dlist_t gs;
 
-/* Double Linked List Functions*/
+/* dlist.c */
 void dlist_init(void);
 void dlist_destroy(void);
 int dlist_ins_end(const unsigned int data);
 int dlist_ins_beg(const unsigned int data);
 int dlist_remove(stack_t *node);
 
-/* Functions.c */
-void myexit(int code, char *string);
+/* run_opcode.c */
 int run_opcode(char *buf);
+void myexit(int code, char *string);
 int chk_int(const char *argint);
+void nop(stack_t **stack, unsigned int data);
+
+/* functions.c */
 void push(stack_t **stack, unsigned int data);
 void pint(stack_t **stack, unsigned int data);
 void pall(stack_t **stack, unsigned int data);
 void pop(stack_t **stack, unsigned int data);
-void nop(stack_t **stack, unsigned int data);
-void add(stack_t **head, unsigned int data);
-void swap(stack_t **head, unsigned int data);
+void swap(stack_t **stack, unsigned int data);
 
-
+/* mathFunc.c */
+void _add(stack_t **head, unsigned int data);
+void _sub(stack_t **head, unsigned int data);
+void _div(stack_t **head, unsigned int data);
+void _mod(stack_t **head, unsigned int data);
+void _mul(stack_t **head, unsigned int data);
 #endif /* _MONTY_H_ */
