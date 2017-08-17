@@ -46,9 +46,11 @@ typedef struct dlist_s
 	unsigned int ln;
 	stack_t *head;
 	stack_t *tail;
+	FILE *fd;
+	char *buffer;
 } dlist_t;
 
-extern dlist_t gstruct;
+extern dlist_t gs;
 
 /* Double Linked List Functions*/
 void dlist_init(void);
@@ -58,8 +60,12 @@ int dlist_ins_beg(const unsigned int data);
 int dlist_remove(stack_t *node);
 
 /* Functions.c */
-void myexit(int code, int linenum, char *string);
+void myexit(int code, char *string);
 int run_opcode(char *buf);
-int chk_int(char *x);
+int chk_int(const char *argint);
+void push(stack_t **stack, unsigned int data);
+void pint(stack_t **stack, unsigned int data);
+void pall(stack_t **stack, unsigned int data);
+
 
 #endif /* _MONTY_H_ */

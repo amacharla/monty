@@ -4,6 +4,7 @@ extern dlist_t gs; /*global structure*/
 
 void myexit(int code, char *string)
 {
+	code *= -1;
 	switch(code)
 	{
 		case 1:
@@ -28,10 +29,12 @@ void myexit(int code, char *string)
 	}
 
 }
-void pall(void)
+void pall(stack_t **head, unsigned int data)
 {
 	unsigned int i = 0;
 	stack_t *list = gs.head;
+	(void)head;
+	(void)data;
 
 	for (; list; list = list->next, i++)
 	{
@@ -39,9 +42,18 @@ void pall(void)
 	}
 }
 
-void pint(void)
+void pint(stack_t **head, unsigned int data)
 {
-	stack_t *list = gs.tail;
+	(void)head;
+	(void)data;
+/*	stack_t *list = gs.tail;*/
+	printf("PINT FUNCTION");
+/*	printf("%d\n", list->n);*/
+}
 
-	printf("%d\n", list->n);
+void push(stack_t **head, unsigned int data)
+{
+	(void)head;
+	(void)data;
+	printf("PUSH FUNCTION");
 }
