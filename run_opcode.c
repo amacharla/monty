@@ -26,7 +26,7 @@ int run_opcode(char *buf)
 	{
 		if (strcmp(opcode, cmd[i].opcode) == 0)
 		{
-			if(i == 0)
+			if (i == 0)
 			{
 				argint = strtok(NULL, " \t\n");
 				intarg = chk_int(argint);/*check for int argument*/
@@ -37,20 +37,41 @@ int run_opcode(char *buf)
 			break;
 		}
 	}
-	if(cmd[i].f == NULL)/*IF NO MATCH*/
+	if (cmd[i].f == NULL)/*IF NO MATCH*/
 		myexit(-3, opcode);
 
-	return(0);
+	return (0);
 }
-/*
- * myexit - error handling function and exits with failure
- * @code: respective error code
- * @string: opcode or word for respective error
- */
+/**
+  * chk_int - checks argument given for push statement is a valid integer
+  * @argint: integer given as a string
+  * Return: number string converted to integer on success, otherwise -4
+  */
+int chk_int(const char *argint)
+{
+	int i, check, intarg;
+
+	if (argint == NULL)
+		return (-4);/*second strtok fails*/
+
+	for (i = 0; argint[i]; i++)
+	{
+		check = isdigit(argint[i]);
+		if (check == 0)
+			return (-4);
+	}
+	intarg = atoi(argint);
+	return (intarg);
+}
+/**
+  * myexit - prints out error messages and exits failure
+  * @code: corresponding error code
+  * @string: opcode failure occured on
+  **/
 void myexit(int code, char *string)
 {
 	code *= -1;
-	switch(code)
+	switch (code)
 	{
 		case 1:
 			printf("USAGE: monty file\n"); break;
@@ -81,7 +102,7 @@ void myexit(int code, char *string)
 	exit(EXIT_FAILURE);
 
 }
-/* chk_int - checks argument after opcode for integer value
+/** chk_int - checks argument after opcode for integer value
  * @argint: argument thats being checked to be integer
  * Return: String converted to Integer to be added to stack
  */

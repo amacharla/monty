@@ -1,6 +1,9 @@
 #include "monty.h"
 
 dlist_t gs;
+/**
+  * dlist_destroy - closes file descripter and frees buffer
+  */
 void dlist_destroy(void)
 {
 	while (gs.size > 0) /* remove each element */
@@ -8,6 +11,12 @@ void dlist_destroy(void)
 	fclose(gs.fd);
 	free(gs.buffer);
 }
+/**
+  * main - monty bytecode interpreter
+  * @ac: argument count
+  * @av: argument variables entered from the command line
+  * Return: 0 on success
+  */
 
 int main(int ac, char **av)
 {
