@@ -43,27 +43,6 @@ int run_opcode(char *buf)
 	return (0);
 }
 /**
-  * chk_int - checks argument given for push statement is a valid integer
-  * @argint: integer given as a string
-  * Return: number string converted to integer on success, otherwise -4
-  */
-int chk_int(const char *argint)
-{
-	int i, check, intarg;
-
-	if (argint == NULL)
-		return (-4);/*second strtok fails*/
-
-	for (i = 0; argint[i]; i++)
-	{
-		check = isdigit(argint[i]);
-		if (check == 0)
-			return (-4);
-	}
-	intarg = atoi(argint);
-	return (intarg);
-}
-/**
   * myexit - prints out error messages and exits failure
   * @code: corresponding error code
   * @string: opcode failure occured on
