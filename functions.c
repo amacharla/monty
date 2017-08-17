@@ -60,19 +60,17 @@ void pop(stack_t **head, unsigned int data)
 	dlist_remove(gs.tail);
 }
 /**
-  * add - adds the top two elements of the stack
-  * @head: void
-  * @data: void
-  */
-void add(stack_t **head, unsigned int data)
+* swap - swaps the top two elements of the stack
+* @head: void
+* @data: store integer from node
+*/
+void swap(stack_t **head, unsigned int data)
 {
 	(void)head;
-
 	if (gs.size <= 2)
-		myexit(-9, NULL);
+		myexit(-8, NULL);
 
 	data = gs.tail->n;
-	dlist_remove(gs.tail);
-	data += gs.tail->n;
-	gs.tail->n = data;
+	gs.tail->n = gs.tail->prev->n;
+	gs.tail->prev->n = data;
 }

@@ -2,26 +2,27 @@
 #include <string.h>
 #include <ctype.h>
 /**
-  * run_opcode - matches opcode with corresponding function
-  * @buf: line sent in from monty file
-  * Return: 0 on success
-  */
-
+ * run_opcode - searches line for commands and executes them
+ * @buf: line of opcode taken from from file
+ * Return: 0 success, -3 if not a valid command
+ */
 int run_opcode(char *buf)
 {
 	instruction_t cmd[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-		{"swap", swap}, {"add", add}, {"nop", nop}, {"\n", nop}, {NULL, NULL}
+		{"swap", swap}, {"add", _add}, {"nop", nop},
+	        {"sub", _sub}, {"mul", _mul}, {"div", _div}, {"mod", _mod},
+		{NULL, NULL}
 	};
 	stack_t **head = NULL;
 	char *opcode, *argint;
 	unsigned int i;
 	int intarg = 0;
 
-	opcode = strtok(buf, " \t");
+	opcode = strtok(buf, " \t\n\r");
 	if (opcode == NULL)
-		return (-3);
-	for (i = 0; cmd[i].f != NULL; i++)
+		return (0);
+	for(i = 0; cmd[i].f != NULL; i++)
 	{
 		if (strcmp(opcode, cmd[i].opcode) == 0)
 		{
@@ -93,12 +94,40 @@ void myexit(int code, char *string)
 			printf("L%d: can't pop an empty stack\n", gs.ln);
 			break;
 		case 8:
-			printf("L%d: can't swap, stack too short\n", gs.ln);
+			printf("L%d: can't %s, stack too short\n", gs.ln, string);
 			break;
 		case 9:
-			printf("L%d: can't add, stack too short\n", gs.ln);
-			break;
+			printf("L%d: division by zero\n", gs.ln);
 	}
 	exit(EXIT_FAILURE);
 
+}
+/** chk_int - checks argument after opcode for integer value
+ * @argint: argument thats being checked to be integer
+ * Return: String converted to Integer to be added to stack
+ */
+int chk_int(const char *argint)
+{
+	int i, check, intarg;
+	if (argint == NULL)
+		return (-4);/*second strtok fails*/
+
+	for(i = 0; argint[i]; i++)
+	{
+		check = isdigit(argint[i]);
+		if (check == 0)
+			return (-4);
+	}
+	intarg = atoi(argint);
+	return (intarg);
+}
+/**
+* nop - function that does nothing
+* @head: voided
+* @data: voided
+*/
+void nop(stack_t **head, unsigned int data)
+{
+	(void)head;
+	(void)data;
 }
