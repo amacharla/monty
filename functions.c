@@ -63,3 +63,9 @@ void push(stack_t **head, unsigned int data)
 	(void)head;
 	dlist_ins_end(data);
 }
+void pop(stack_t **head, unsigned int data)
+{
+	(void)head;
+	(void)data;
+	dlist_remove(gs.tail);
+}
