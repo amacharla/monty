@@ -28,10 +28,10 @@ void _sub(stack_t **head, unsigned int data)
 	if (gs.size <= 2)
 		myexit(-8, "sub");
 
-	data = gs.tail->n;
-	dlist_remove(gs.tail);
+	data = gs.tail->prev->n;
 	data -= gs.tail->n;
-	gs.tail->n = data;
+	gs.tail->prev->n = data;
+	dlist_remove(gs.tail);
 }
 /**
   * _div - divides the top two elements of the stack
