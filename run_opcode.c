@@ -22,9 +22,9 @@ int run_opcode(char *buf)
 		{
 			if(i == 0)
 			{
-				argint = strtok(NULL, " ");
+				argint = strtok(NULL, " \t\n");
 				intarg = chk_int(argint);/*check for int argument*/
-				if (intarg == -4)/*CHANGE THIS ERRORCODE*/
+				if (intarg == -4)
 					myexit(-4, opcode);
 			}
 			cmd[i].f(head, (unsigned int) intarg);/*send to respective funciton*/
@@ -42,9 +42,10 @@ int chk_int(const char *argint)
 	int i, check, intarg;
 	if (argint == NULL)
 		return (-4);/*second strtok fails*/
+
 	for(i = 0; argint[i]; i++)
 	{
-		check = isalpha(argint[i]);
+		check = isdigit(argint[i]);
 		if (check == 0)
 			return (-4);
 	}

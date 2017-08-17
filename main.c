@@ -1,6 +1,13 @@
 #include "monty.h"
+dlist_t gs;
 
-extern dlist_t gs;
+void dlist_destroy(void)
+{
+	while (gs.size > 0) /* remove each element */
+		dlist_remove(gs.tail);
+	fclose(gs.fd);
+	free(gs.buffer);
+}
 
 int main(int ac, char **av)
 {
@@ -21,13 +28,13 @@ int main(int ac, char **av)
 	{
 		gs.ln++;
 		glcount = getline(&buffer, &bufflen, FD);
+		if (glcount == -1)
+			break;
 		gs.buffer = buffer;
 		check = run_opcode(buffer);
+		buffer = NULL;
 	}
-	if (glcount == -1 && check == 0)/*if getline fails*/
-		myexit(-3, buffer);
 	if (check < 0)/*if run_opcode fails*/
 		myexit(check, buffer);
-	exit(EXIT_SUCCESS);
 	atexit(dlist_destroy);
 }

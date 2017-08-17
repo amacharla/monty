@@ -1,6 +1,5 @@
 #include "monty.h"
 #include <string.h>
-extern dlist_t gs;
 void dlist_init(void)
 {
 	gs.size = 0;
@@ -9,12 +8,6 @@ void dlist_init(void)
 	gs.tail = NULL;
 	gs.fd = NULL;
 	gs.buffer = NULL;
-}
-
-void dlist_destroy(void)
-{
-	while (gs.size > 0) /* remove each element */
-		dlist_remove(gs.tail);
 }
 
 int dlist_remove(stack_t *node)
