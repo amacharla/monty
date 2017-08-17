@@ -2,23 +2,26 @@
 
 void pall(stack_t **head, unsigned int data)
 {
-	unsigned int i = 0;
-	stack_t *list = gs.tail;
+	stack_t *list;
 	(void)head;
 	(void)data;
 
-	for (; list; list = list->prev, i++)
-	{
+	list = gs.tail;
+	if (gs.size == 0)
+		myexit(0, NULL);
+	for (; list; list = list->prev)
 		printf("%d\n", list->n);
-	}
 }
 
 void pint(stack_t **head, unsigned int data)
 {
 	stack_t *list;
-
 	(void)head;
 	(void)data;
+
+	if (gs.size == 0)
+		myexit(-6, NULL);
+
 	list = gs.tail;
 	printf("%d\n", list->n);
 }
@@ -26,6 +29,7 @@ void pint(stack_t **head, unsigned int data)
 void push(stack_t **head, unsigned int data)
 {
 	(void)head;
+
 	dlist_ins_end(data);
 }
 
@@ -33,12 +37,16 @@ void pop(stack_t **head, unsigned int data)
 {
 	(void)head;
 	(void)data;
+
+	if (gs.size == 0)
+		myexit(-7, NULL);
 	dlist_remove(gs.tail);
 }
 
 void add(stack_t **head, unsigned int data)
 {
 	(void)head;
+
 	if (gs.size <= 2)
 		myexit(-9, NULL);
 

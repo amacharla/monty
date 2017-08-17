@@ -6,14 +6,14 @@ int run_opcode(char *buf)
 {
 	instruction_t cmd[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-		{"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}
+		{"swap", swap}, {"add", add}, {"nop", nop}, {"\n", nop}, {NULL, NULL}
 	};
 	stack_t **head = NULL;
 	char *opcode, *argint;
 	unsigned int i;
 	int intarg = 0;
 
-	opcode = strtok(buf, " \t\n");
+	opcode = strtok(buf, " \t");
 	if (opcode == NULL)
 		return (-3);
 	for(i = 0; cmd[i].f != NULL; i++)
