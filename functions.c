@@ -40,11 +40,11 @@ void myexit(int code, char *string)
 void pall(stack_t **head, unsigned int data)
 {
 	unsigned int i = 0;
-	stack_t *list = gs.head;
+	stack_t *list = gs.tail;
 	(void)head;
 	(void)data;
 
-	for (; list; list = list->next, i++)
+	for (; list; list = list->prev, i++)
 	{
 		printf("%d\n", list->n);
 	}
