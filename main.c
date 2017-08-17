@@ -1,6 +1,6 @@
 #include "monty.h"
-dlist_t gs;
 
+dlist_t gs;
 void dlist_destroy(void)
 {
 	while (gs.size > 0) /* remove each element */
