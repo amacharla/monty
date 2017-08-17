@@ -38,4 +38,5 @@ int main(int ac, char **av)
 	if (check < 0)/*if run_opcode fails*/
 		myexit(check, buffer);
 	atexit(dlist_destroy);
+	return (0);
 }
