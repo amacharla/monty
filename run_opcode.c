@@ -6,7 +6,7 @@ int run_opcode(char *buf)
 {
 	instruction_t cmd[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-		/*{"swap", swap}, {"add", add}, {"nop", nop},*/ {NULL, NULL}
+		/*{"swap", swap}, {"add", add},*/ {"nop", nop}, {NULL, NULL}
 	};
 	stack_t **head = NULL;
 	char *opcode, *argint;

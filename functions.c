@@ -69,3 +69,8 @@ void pop(stack_t **head, unsigned int data)
 	(void)data;
 	dlist_remove(gs.tail);
 }
+void nop(stack_t **head, unsigned int data)
+{
+	(void)head;
+	(void)data;
+}
