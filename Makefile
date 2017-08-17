@@ -5,7 +5,7 @@ FLAGS = -Wall -Werror -Wextra -pedantic -g
 all: main
 
 main:
-	gcc $(FLAGS) main.c functions.c run_opcode.c dlist.c
+	gcc $(FLAGS) main.c functions.c functions2.c run_opcode.c dlist.c
 
 test:
 	gcc -g
