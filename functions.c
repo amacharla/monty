@@ -54,14 +54,12 @@ void pint(stack_t **head, unsigned int data)
 {
 	(void)head;
 	(void)data;
-/*	stack_t *list = gs.tail;*/
-	printf("PINT FUNCTION\n");
-/*	printf("%d\n", list->n);*/
+	stack_t *list = gs.tail;
+	printf("%d\n", list->n);
 }
 
 void push(stack_t **head, unsigned int data)
 {
 	(void)head;
-	(void)data;
-	printf("PUSH FUNCTION\n");
+	dlist_ins_end(data);
 }

@@ -32,6 +32,7 @@ int main(int ac, char **av)
 			break;
 		gs.buffer = buffer;
 		check = run_opcode(buffer);
+		free(buffer);
 		buffer = NULL;
 	}
 	if (check < 0)/*if run_opcode fails*/

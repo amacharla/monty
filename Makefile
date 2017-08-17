@@ -13,3 +13,5 @@ r: main
 	./a.out bytecode.m
 t: test
 	gdb ./a.out
+v: main
+	valgrind ./a.out bytecode.m
