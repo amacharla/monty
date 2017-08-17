@@ -67,8 +67,10 @@ int chk_int(const char *argint);
 void push(stack_t **stack, unsigned int data);
 void pint(stack_t **stack, unsigned int data);
 void pall(stack_t **stack, unsigned int data);
+void pop(stack_t **stack, unsigned int data);
+void nop(stack_t **stack, unsigned int data);
 void add(stack_t **head, unsigned int data);
 void swap(stack_t **head, unsigned int data);
-void nop(stack_t **head, unsigned int data);
+
 
 #endif /* _MONTY_H_ */

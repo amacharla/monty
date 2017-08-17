@@ -3,11 +3,11 @@
 void pall(stack_t **head, unsigned int data)
 {
 	unsigned int i = 0;
-	stack_t *list = gs.head;
+	stack_t *list = gs.tail;
 	(void)head;
 	(void)data;
 
-	for (; list; list = list->next, i++)
+	for (; list; list = list->prev, i++)
 	{
 		printf("%d\n", list->n);
 	}
@@ -29,10 +29,17 @@ void push(stack_t **head, unsigned int data)
 	dlist_ins_end(data);
 }
 
+void pop(stack_t **head, unsigned int data)
+{
+	(void)head;
+	(void)data;
+	dlist_remove(gs.tail);
+}
+
 void add(stack_t **head, unsigned int data)
 {
 	(void)head;
-	if (gs.size == 0)
+	if (gs.size <= 2)
 		myexit(-9, NULL);
 
 	data = gs.tail->n;
