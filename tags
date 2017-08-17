@@ -1,27 +1,37 @@
-!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
-!_TAG_PROGRAM_NAME	Exuberant Ctags	//
-!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-FLAGS	Makefile	/^FLAGS = -Wall -Werror -Wextra -pedantic -g$/;"	m
-_MONTY_H_	monty.h	2;"	d
-dlist_destroy	dlist.c	/^void dlist_destroy(stack_t **stack)$/;"	f
-dlist_init	dlist.c	/^void dlist_init(stack_t **stack)$/;"	f
-dlist_ins_beg	dlist.c	/^int dlist_ins_beg (stack_t **stack, const unsigned int data)$/;"	f
-dlist_ins_end	dlist.c	/^int dlist_ins_end (stack_t **stack, const unsigned int data)$/;"	f
-dlist_is_head	monty.h	48;"	d
-dlist_is_tail	monty.h	49;"	d
-dlist_remove	dlist.c	/^int dlist_remove (stack_t **stack, stack_t *node)$/;"	f
-dlist_size	monty.h	47;"	d
-f	monty.h	/^	void (*f)(stack_t **stack, unsigned int line_number);$/;"	m	struct:instruction_s
-instruction_s	monty.h	/^typedef struct instruction_s$/;"	s
-instruction_t	monty.h	/^} instruction_t;$/;"	t	typeref:struct:instruction_s
-main	main.c	/^int main(int ac, char **av)$/;"	f
-myexit	functions.c	/^void myexit(int code, int linenum, char *string)$/;"	f
-n	monty.h	/^	int n;$/;"	m	struct:stack_s
-next	monty.h	/^	struct stack_s *next;$/;"	m	struct:stack_s	typeref:struct:stack_s::stack_s
-opcode	monty.h	/^	char *opcode;$/;"	m	struct:instruction_s
-prev	monty.h	/^	struct stack_s *prev;$/;"	m	struct:stack_s	typeref:struct:stack_s::stack_s
-stack_s	monty.h	/^typedef struct stack_s$/;"	s
-stack_t	monty.h	/^} stack_t;$/;"	t	typeref:struct:stack_s
+Barbier	README.md	2
+FLAGS	Makefile	/^FLAGS = -Wall -Werror -Wextra -pedantic -g$/
+LIFO	README.md	2
+MMakefile	Makefile	/^main:$/
+Mmain	main.c	/^int main(int ac, char **av)$/
+Mtest	test.c	/^int main(void)$/
+Stacks	README.md	2
+_MONTY_H_	monty.h	2
+all	Makefile	/^all: main$/
+amp	README.md	2
+chk_int	run_opcode.c	/^int chk_int(const char *argint)$/
+dlist_destroy	dlist.c	/^void dlist_destroy(void)$/
+dlist_init	dlist.c	/^void dlist_init(void)$/
+dlist_ins_beg	dlist.c	/^int dlist_ins_beg(const unsigned int data)$/
+dlist_ins_end	dlist.c	/^int dlist_ins_end(const unsigned int data)$/
+dlist_remove	dlist.c	/^int dlist_remove(stack_t *node)$/
+dlist_s	monty.h	43
+dlist_t	monty.h	48
+f	monty.h	/^	void (*f)(stack_t **stack, unsigned int line_numb/
+head	monty.h	46
+instruction_s	monty.h	32
+instruction_t	monty.h	36
+myexit	functions.c	/^void myexit(int code, int linenum, char *string)$/
+n	monty.h	19
+next	monty.h	21
+opcode	monty.h	34
+pall	functions.c	/^size_t pall(void)$/
+pint	functions.c	/^size_t pint(void)$/
+prev	monty.h	20
+r	Makefile	/^r: main$/
+run_opcode	run_opcode.c	/^int run_opcode(char *buf)$/
+size	monty.h	45
+stack_s	monty.h	17
+stack_t	monty.h	22
+t	Makefile	/^t: test$/
+tail	monty.h	47
+test	Makefile	/^test:$/

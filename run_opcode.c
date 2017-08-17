@@ -2,38 +2,39 @@
 #include <string.h>
 #include <ctype.h>
 
-int run_opcode(char *buf)
+int runopcode(char *buf)
 {
 	instruction_t cmd[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}
 	};
 	stack_t *head = NULL;
-	char *_opcode, *argint;
-	int i, _int, check, chk, intarg = -1;
-	dlist_t struct;
+	char *opcode, *argint;
+	int i, chk = 0, intarg = -1;
 
-	dlist_init();
-	_opcode = strtok(buf, " \t\n");
-	while(_opcode != NULL)
+	dlist_init();/*initilize gstruct*/
+	opcode = strtok(buf, " \t\n");
+	if (opcode == NULL)
+		return (-3);
+	while(opcode != NULL)
 	{
 		for(i = 0; cmd[i].f != NULL; i++)
 		{
-			if (strcmp(_opcode, cmd[i].opcode) == 0)
+			if (strcmp(opcode, cmd[i].opcode) == 0)
 			{
 				if(i == 0)
 				{
 					argint = strtok(NULL, " ");
-					intarg = chk_int(argint);
-					if (intarg == -1)/*CHANGE THIS ERRORCODE*/
-						break;
+					intarg = chk_int(argint);/*check for int argument*/
+					if (intarg == -4)/*CHANGE THIS ERRORCODE*/
+						myexit(-3, opcode);
 				}
-				chk = cmd[i].f(head, intarg);
+				cmd[i].f(head, intarg);/*send to respective funciton*/
 				break;
 			}
 		}
-		if(cmd[i].f == NULL || intarg == -1)
-			return(-1);
+		if(cmd[i].f == NULL)/*IF NO MATCH*/
+			myexit(-3, opcode);
 	}
 	return(chk);
 }
@@ -42,12 +43,12 @@ int chk_int(const char *argint)
 {
 	int i, check, intarg;
 	if (argint == NULL)
-		return (-3)/* CHANGE THIS ERROR CODE*/
+		return (-4)/* CHANGE THIS ERROR CODE*/
 	for(i = 0; argint[i]; i++)
 	{
 		check = isalpha(argint[i]);
 		if (check == 0)
-			return (-1);
+			return (-4);
 	}
 	intarg = atoi(argint);
 	return (intarg);

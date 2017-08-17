@@ -43,6 +43,7 @@ typedef struct instruction_s
 typedef struct dlist_s
 {
 	size_t size;
+	unsigned int ln;
 	stack_t *head;
 	stack_t *tail;
 } dlist_t;

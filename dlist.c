@@ -4,6 +4,7 @@ extern dlist_t list;
 void dlist_init(void)
 {
 	list.size = 0;
+	list.ln = 0;
 	list.head = NULL;
 	list.tail = NULL;
 }
