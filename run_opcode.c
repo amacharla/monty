@@ -1,6 +1,4 @@
 #include "monty.h"
-#include <string.h>
-#include <ctype.h>
 /**
  * run_opcode - searches line for commands and executes them
  * @buf: line of opcode taken from from file
