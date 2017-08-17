@@ -3,9 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <strings.h> /*strtok*/
 #include <unistd.h> /*atexit*/
-#include <ctype.h> /*isdigit*.
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
