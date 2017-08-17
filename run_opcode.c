@@ -20,7 +20,7 @@ int run_opcode(char *buf)
 	int intarg = 0;
 
 	opcode = strtok(buf, " \t\n\r");
-	if (opcode == NULL)
+	if (opcode == NULL || opcode[0] == '#')
 		return (0);
 	for (i = 0; cmd[i].f != NULL; i++)
 	{
@@ -95,6 +95,8 @@ int chk_int(const char *argint)
 
 	for (i = 0; argint[i]; i++)
 	{
+		if (argint[i] == '-' && argint[i + 1] != '-')
+			continue;
 		check = isdigit(argint[i]);
 		if (check == 0)
 			return (-4);
