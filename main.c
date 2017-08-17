@@ -9,7 +9,8 @@ void dlist_destroy(void)
 	while (gs.size > 0) /* remove each element */
 		dlist_remove(gs.tail);
 	fclose(gs.fd);
-	free(gs.buffer);
+	if (gs.buffer != NULL)
+		free(gs.buffer);
 }
 /**
   * main - monty bytecode interpreter
