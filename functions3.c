@@ -7,6 +7,8 @@
 void rotl(stack_t **head, unsigned int data)
 {
 	(void) head;
+	if (gs.size == 0)
+		myexit(0, NULL);
 
 	data = gs.tail->n;
 	dlist_ins_beg(data);
@@ -20,6 +22,8 @@ void rotl(stack_t **head, unsigned int data)
 void rotr(stack_t **head, unsigned int data)
 {
 	(void) head;
+	if (gs.size == 0)
+		myexit(0, NULL);
 
 	data = gs.head->n;
 	dlist_ins_end(data);
