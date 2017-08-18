@@ -24,7 +24,6 @@ int main(int ac, char **av)
 {
 	FILE *FD;
 	char *buffer = NULL;
-	int check = 0;
 	ssize_t glcount = 0;
 	size_t bufflen = 0;
 
@@ -35,14 +34,14 @@ int main(int ac, char **av)
 	if (FD == NULL)
 		myexit(-2, av[1]);
 	gs.fd = FD;
-	while (glcount != -1 && check >= 0)
+	while (glcount != -1)
 	{
 		gs.ln++;
 		glcount = getline(&buffer, &bufflen, FD);
 		if (glcount == -1)
 			break;
 		gs.buffer = buffer;
-		check = run_opcode(buffer);
+		run_opcode(buffer);
 	}
 	dlist_destroy();
 	return (EXIT_SUCCESS);
