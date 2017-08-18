@@ -1,5 +1,19 @@
 #include "monty.h"
 /**
+  * push - pushes an element to the stack
+  * @head: void
+  * @data: used to check if malloc fails
+  */
+
+void push(stack_t **head, unsigned int data)
+{
+	(void)head;
+
+	data = dlist_ins_end(gs.intarg);
+	if (data == 42)
+		myexit(-5, NULL);
+}
+/**
   * pall -  prints all the values on the stack, starting from the top
   * @head: void
   * @data: void
@@ -23,27 +37,13 @@ void pall(stack_t **head, unsigned int data)
 */
 void pint(stack_t **head, unsigned int data)
 {
-	stack_t *list;
 	(void)head;
 	(void)data;
 
 	if (gs.size == 0)
 		myexit(-6, NULL);
 
-	list = gs.tail;
-	printf("%d\n", list->n);
-}
-/**
-  * push - pushes an element to the stack
-  * @head: void
-  * @data: integer passed to stack
-  */
-
-void push(stack_t **head, unsigned int data)
-{
-	(void)head;
-
-	dlist_ins_end(data);
+	printf("%d\n", gs.tail->n);
 }
 /**
   * pop - removes the top element of the stack

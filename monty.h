@@ -47,6 +47,7 @@ typedef struct dlist_s
 	stack_t *tail;
 	FILE *fd;
 	void *buffer;
+	int intarg;
 } dlist_t;
 
 extern dlist_t gs;

@@ -4,23 +4,21 @@
 /**
  * run_opcode - searches line for commands and executes them
  * @buf: line of opcode taken from from file
- * Return: 0 success, -3 if not a valid command
+ * Return: 0 if empty line or comment.
  */
 int run_opcode(char *buf)
 {
 	instruction_t cmd[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-		{"swap", swap}, {"add", _add}, {"nop", nop},
-		{"sub", _sub}, {"mul", _mul}, {"div", _div}, {"mod", _mod},
-		{NULL, NULL}
+		{"swap", swap}, {"add", _add}, {"nop", nop}, {"sub", _sub},
+	       	{"mul", _mul}, {"div", _div}, {"mod", _mod}, {NULL, NULL}
 	};
-	stack_t **head = NULL;
 	char *opcode, *argint;
 	unsigned int i;
 	int intarg = 0;
 
 	opcode = strtok(buf, " \t\n\r");
-	if (opcode == NULL || opcode[0] == '#')
+	if (opcode == NULL || opcode[0] == '#')/*if empty line or comment*/
 		return (0);
 	for (i = 0; cmd[i].f != NULL; i++)
 	{
@@ -29,11 +27,11 @@ int run_opcode(char *buf)
 			if (i == 0)
 			{
 				argint = strtok(NULL, " \t\n");
-				intarg = chk_int(argint);/*check for int argument*/
-				if (intarg == -4)
+				intarg = chk_int(argint);/*chk int arg*/
+				if (intarg == -4)/*push arg is not int*/
 					myexit(-4, opcode);
 			}
-			cmd[i].f(head, (unsigned int) intarg);/*send to respective funciton*/
+			cmd[i].f(NULL, 0);/*call respective funciton*/
 			break;
 		}
 	}
@@ -78,17 +76,17 @@ void myexit(int code, char *string)
 		case 9:
 			printf("L%d: division by zero\n", gs.ln);
 	}
+	dlist_destroy();
 	exit(EXIT_FAILURE);
-
 }
 /**
  * chk_int - checks argument after opcode for integer value
  * @argint: argument thats being checked to be integer
- * Return: String converted to Integer to be added to stack
+ * Return: -4 if strtok fails else 0
  */
 int chk_int(const char *argint)
 {
-	int i, check, intarg;
+	int i, check;
 
 	if (argint == NULL)
 		return (-4);/*second strtok fails*/
@@ -101,8 +99,8 @@ int chk_int(const char *argint)
 		if (check == 0)
 			return (-4);
 	}
-	intarg = atoi(argint);
-	return (intarg);
+	gs.intarg = atoi(argint);
+	return (0);
 }
 /**
 * nop - function that does nothing

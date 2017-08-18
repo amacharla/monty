@@ -11,13 +11,13 @@ void dlist_init(void)
 	gs.tail = NULL;
 	gs.fd = NULL;
 	gs.buffer = NULL;
+	gs.intarg = 0;
 }
 /**
  * dlist_remove - removes node from doubly linked list
  * @node: stack to be removed
- * Return: 0 on sucess
+ * Return: 0 on sucess else -1 if stack is empty
  */
-
 int dlist_remove(stack_t *node)
 {
 	if (node == NULL || gs.size == 0)
@@ -49,7 +49,7 @@ int dlist_remove(stack_t *node)
 /**
  * dlist_ins_end - adds node to the end ofdoubly linked list
  * @data: int to be stored in node
- * Return: 0 on sucess
+ * Return: 0 on sucess else 42 if malloc fails
  */
 int dlist_ins_end(const unsigned int data)
 {
@@ -57,7 +57,7 @@ int dlist_ins_end(const unsigned int data)
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
-		return (-1);
+		return (42);
 	/* Add new element into dlist_t */
 	new_node->n = data;
 
@@ -83,7 +83,7 @@ int dlist_ins_end(const unsigned int data)
 /**
  * dlist_ins_beg - adds node to beginning of doubly linked list
  * @data: int to be stored in node
- * Return: 0 on sucess
+ * Return: 0 on sucess else 42 if malloc fails
  */
 
 int dlist_ins_beg(const unsigned int data)
@@ -92,7 +92,7 @@ int dlist_ins_beg(const unsigned int data)
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
-		return (-1);
+		return (42);
 	/* Add new element into dlist_t */
 	new_node->n = data;
 

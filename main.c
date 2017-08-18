@@ -8,7 +8,8 @@ void dlist_destroy(void)
 {
 	while (gs.size > 0) /* remove each element */
 		dlist_remove(gs.tail);
-	fclose(gs.fd);
+	if (gs.fd != NULL)
+		fclose(gs.fd);
 	if (gs.buffer != NULL)
 		free(gs.buffer);
 }
@@ -42,11 +43,7 @@ int main(int ac, char **av)
 			break;
 		gs.buffer = buffer;
 		check = run_opcode(buffer);
-		free(buffer);
-		buffer = NULL;
 	}
-	if (check < 0)/*if run_opcode fails*/
-		myexit(check, buffer);
-	atexit(dlist_destroy);
-	return (0);
+	dlist_destroy();
+	return (EXIT_SUCCESS);
 }
