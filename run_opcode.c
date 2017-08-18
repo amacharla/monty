@@ -28,7 +28,7 @@ int run_opcode(char *buf)
 				argint = strtok(NULL, delim);
 				intarg = chk_int(argint);/*chk int arg*/
 				if (intarg == -4)/*push arg is not int*/
-					myexit(-4, opcode);
+					myexit(-4, NULL);
 			}
 			cmd[i].f(NULL, 0);/*call respective funciton*/
 			break;
