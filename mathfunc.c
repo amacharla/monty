@@ -8,7 +8,7 @@ void _add(stack_t **head, unsigned int data)
 {
 	(void)head;
 
-	if (gs.size <= 2)
+	if (gs.size < 2)
 		myexit(-8, "add");
 
 	data = gs.tail->n;
@@ -25,7 +25,7 @@ void _sub(stack_t **head, unsigned int data)
 {
 	(void)head;
 
-	if (gs.size <= 2)
+	if (gs.size < 2)
 		myexit(-8, "sub");
 
 	data = gs.tail->prev->n;
@@ -42,7 +42,7 @@ void _div(stack_t **head, unsigned int data)
 {
 	(void)head;
 
-	if (gs.size <= 2)
+	if (gs.size < 2)
 		myexit(-8, "div");
 
 	data = gs.tail->n;
@@ -61,7 +61,7 @@ void _mod(stack_t **head, unsigned int data)
 {
 	(void)head;
 
-	if (gs.size <= 2)
+	if (gs.size < 2)
 		myexit(-8, "mod");
 
 	data = gs.tail->n;
@@ -80,7 +80,7 @@ void _mul(stack_t **head, unsigned int data)
 {
 	(void)head;
 
-	if (gs.size <= 2)
+	if (gs.size < 2)
 		myexit(-8, "mul");
 
 	data = gs.tail->n;
