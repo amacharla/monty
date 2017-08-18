@@ -12,7 +12,7 @@ int run_opcode(char *buf)
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", _add}, {"nop", nop}, {"sub", _sub},
 	       	{"mul", _mul}, {"div", _div}, {"mod", _mod}, {"rotl", rotl},
-	       	{"rotr", rotr}, {NULL, NULL}
+	       	{"rotr", rotr}, {"pchar", pchar}, {"pstr", pstr}, {NULL, NULL}
 	};
 	char *opcode, *argint;
 	unsigned int i;
