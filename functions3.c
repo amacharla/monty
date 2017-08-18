@@ -61,6 +61,8 @@ void pstr(stack_t **head, unsigned int data)
 	list = gs.tail;
 	for (; list; list = list->prev)
 	{
+		if (list->n == 0)
+			break;
 		printf("%c", list->n);
 	}
 	printf("\n");
