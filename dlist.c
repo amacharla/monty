@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <string.h>
 /**
  * dlist_init - initializes doubly linked list
  */

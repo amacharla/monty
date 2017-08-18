@@ -1,6 +1,4 @@
 #include "monty.h"
-#include <string.h> /*strtok*/
-#include <ctype.h> /*isdigit*/
 /**
  * run_opcode - searches line for commands and executes them
  * @buf: line of opcode taken from from file
