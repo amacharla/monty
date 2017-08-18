@@ -36,10 +36,16 @@ void rotr(stack_t **head, unsigned int data)
 */
 void pchar(stack_t **head, unsigned int data)
 {
+	int num;
 	(void) head;
 	(void) data;
 
-	printf("%c\n", gs.head->n);
+	if (gs.size == 0)
+		myexit(-6, "pchar");
+	num = gs.tail->n;
+	if (num < 0 || num > 127)
+		myexit(-10, NULL);
+	printf("%c\n", num);
 }
 /**
  * pstr - rotates the stack to the bottom
@@ -48,11 +54,11 @@ void pchar(stack_t **head, unsigned int data)
  */
 void pstr(stack_t **head, unsigned int data)
 {
+	stack_t *list;
 	(void) head;
 	(void) data;
 
-	stack_t *list = gs.tail;
-
+	list = gs.tail;
 	for (; list; list = list->prev)
 	{
 		printf("%c", list->n);

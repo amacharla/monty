@@ -41,7 +41,7 @@ void pint(stack_t **head, unsigned int data)
 	(void)data;
 
 	if (gs.size == 0)
-		myexit(-6, NULL);
+		myexit(-6, "pint");
 
 	printf("%d\n", gs.tail->n);
 }

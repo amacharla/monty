@@ -11,8 +11,8 @@ int run_opcode(char *buf)
 	instruction_t cmd[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", _add}, {"nop", nop}, {"sub", _sub},
-	       	{"mul", _mul}, {"div", _div}, {"mod", _mod}, {"rotl", rotl},
-	       	{"rotr", rotr}, {"pchar", pchar}, {"pstr", pstr}, {NULL, NULL}
+		{"mul", _mul}, {"div", _div}, {"mod", _mod}, {"rotl", rotl},
+		{"rotr", rotr}, {"pchar", pchar}, {"pstr", pstr}, {NULL, NULL}
 	};
 	char *opcode, *argint;
 	unsigned int i;
@@ -54,28 +54,27 @@ void myexit(int code, char *string)
 		case 1:
 			printf("USAGE: monty file\n"); break;
 		case 2:
-			printf("Error: Cant't open file %s\n", string);
-			break;
+			printf("Error: Cant't open file %s\n", string); break;
 		case 3:
 			printf("L%d: unknown instruction %s\n", gs.ln, string);
 			break;
 		case 4:
-			printf("L%d: usage: push integer\n", gs.ln);
-			break;
+			printf("L%d: usage: push integer\n", gs.ln); break;
 		case 5:
-			printf("Error: malloc failed\n");
-			break;
+			printf("Error: malloc failed\n"); break;
 		case 6:
-			printf("L%d: can't pint, stack empty\n", gs.ln);
+			printf("L%d: can't %s, stack empty\n", gs.ln, string);
 			break;
 		case 7:
-			printf("L%d: can't pop an empty stack\n", gs.ln);
-			break;
+			printf("L%d: can't pop an empty stack\n", gs.ln); break;
 		case 8:
 			printf("L%d: can't %s, stack too short\n", gs.ln, string);
 			break;
 		case 9:
-			printf("L%d: division by zero\n", gs.ln);
+			printf("L%d: division by zero\n", gs.ln); break;
+		case 10:
+			printf("L%d: can't pchar, value out of range\n", gs.ln);
+			break;
 	}
 	dlist_destroy();
 	exit(EXIT_FAILURE);

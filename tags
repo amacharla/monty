@@ -11,7 +11,7 @@ _div	mathfunc.c	/^void _div(stack_t **head, unsigned int data)$/;"	f
 _mod	mathfunc.c	/^void _mod(stack_t **head, unsigned int data)$/;"	f
 _mul	mathfunc.c	/^void _mul(stack_t **head, unsigned int data)$/;"	f
 _sub	mathfunc.c	/^void _sub(stack_t **head, unsigned int data)$/;"	f
-buffer	monty.h	/^	char *buffer;$/;"	m	struct:dlist_s
+buffer	monty.h	/^	void *buffer;$/;"	m	struct:dlist_s
 chk_int	run_opcode.c	/^int chk_int(const char *argint)$/;"	f
 dlist_destroy	main.c	/^void dlist_destroy(void)$/;"	f
 dlist_init	dlist.c	/^void dlist_init(void)$/;"	f
@@ -26,19 +26,23 @@ gs	main.c	/^dlist_t gs;$/;"	v
 head	monty.h	/^	stack_t *head;$/;"	m	struct:dlist_s
 instruction_s	monty.h	/^typedef struct instruction_s$/;"	s
 instruction_t	monty.h	/^} instruction_t;$/;"	t	typeref:struct:instruction_s
+intarg	monty.h	/^	int intarg;$/;"	m	struct:dlist_s
 ln	monty.h	/^	unsigned int ln;$/;"	m	struct:dlist_s
 main	main.c	/^int main(int ac, char **av)$/;"	f
-main	test.c	/^int main(void)$/;"	f
 myexit	run_opcode.c	/^void myexit(int code, char *string)$/;"	f
 n	monty.h	/^	int n;$/;"	m	struct:stack_s
 next	monty.h	/^	struct stack_s *next;$/;"	m	struct:stack_s	typeref:struct:stack_s::stack_s
 nop	run_opcode.c	/^void nop(stack_t **head, unsigned int data)$/;"	f
 opcode	monty.h	/^	char *opcode;$/;"	m	struct:instruction_s
 pall	functions.c	/^void pall(stack_t **head, unsigned int data)$/;"	f
+pchar	functions3.c	/^void pchar(stack_t **head, unsigned int data)$/;"	f
 pint	functions.c	/^void pint(stack_t **head, unsigned int data)$/;"	f
 pop	functions.c	/^void pop(stack_t **head, unsigned int data)$/;"	f
 prev	monty.h	/^	struct stack_s *prev;$/;"	m	struct:stack_s	typeref:struct:stack_s::stack_s
+pstr	functions3.c	/^void pstr(stack_t **head, unsigned int data)$/;"	f
 push	functions.c	/^void push(stack_t **head, unsigned int data)$/;"	f
+rotl	functions3.c	/^void rotl(stack_t **head, unsigned int data)$/;"	f
+rotr	functions3.c	/^void rotr(stack_t **head, unsigned int data)$/;"	f
 run_opcode	run_opcode.c	/^int run_opcode(char *buf)$/;"	f
 size	monty.h	/^	size_t size;$/;"	m	struct:dlist_s
 stack_s	monty.h	/^typedef struct stack_s$/;"	s
