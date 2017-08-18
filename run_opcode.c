@@ -52,7 +52,7 @@ void myexit(int code, char *string)
 		case 1:
 			printf("USAGE: monty file\n"); break;
 		case 2:
-			printf("Error: Cant't open file %s\n", string); break;
+			printf("Error: Can't open file %s\n", string); break;
 		case 3:
 			printf("L%d: unknown instruction %s\n", gs.ln, string);
 			break;
