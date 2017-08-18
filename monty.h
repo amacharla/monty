@@ -50,6 +50,7 @@ typedef struct dlist_s
 	FILE *fd;
 	void *buffer;
 	int intarg;
+	int mode;
 } dlist_t;
 
 extern dlist_t gs;
@@ -57,8 +58,8 @@ extern dlist_t gs;
 /* dlist.c */
 void dlist_init(void);
 void dlist_destroy(void);
-int dlist_ins_end(const unsigned int data);
-int dlist_ins_beg(const unsigned int data);
+int dlist_ins_end(const int data);
+int dlist_ins_beg(const int data);
 int dlist_remove(stack_t *node);
 
 /* run_opcode.c */
@@ -79,6 +80,7 @@ void rotl(stack_t **head, unsigned int data);
 void rotr(stack_t **head, unsigned int data);
 void pchar(stack_t **head, unsigned int data);
 void pstr(stack_t **head, unsigned int data);
+void chgmode(stack_t **head, unsigned int data);
 
 /* mathFunc.c */
 void _add(stack_t **head, unsigned int data);

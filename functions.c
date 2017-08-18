@@ -9,7 +9,10 @@ void push(stack_t **head, unsigned int data)
 {
 	(void)head;
 
-	data = dlist_ins_end(gs.intarg);
+	if (gs.mode == 1)/* Stack */
+		data = dlist_ins_end(gs.intarg);
+	else /* Queue */
+		data = dlist_ins_beg(gs.intarg);
 	if (data == 42)
 		myexit(-5, NULL);
 }

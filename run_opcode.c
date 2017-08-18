@@ -10,7 +10,8 @@ int run_opcode(char *buf)
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", _add}, {"nop", nop}, {"sub", _sub},
 		{"mul", _mul}, {"div", _div}, {"mod", _mod}, {"rotl", rotl},
-		{"rotr", rotr}, {"pchar", pchar}, {"pstr", pstr}, {NULL, NULL}
+		{"rotr", rotr}, {"pchar", pchar}, {"pstr", pstr}, {"queue", chgmode},
+		{"stack", chgmode}, {NULL, NULL}
 	};
 	char *opcode, *argint, *delim = " \t\n\r";
 	unsigned int i;

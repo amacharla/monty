@@ -15,8 +15,8 @@ buffer	monty.h	/^	void *buffer;$/;"	m	struct:dlist_s
 chk_int	run_opcode.c	/^int chk_int(const char *argint)$/;"	f
 dlist_destroy	main.c	/^void dlist_destroy(void)$/;"	f
 dlist_init	dlist.c	/^void dlist_init(void)$/;"	f
-dlist_ins_beg	dlist.c	/^int dlist_ins_beg(const unsigned int data)$/;"	f
-dlist_ins_end	dlist.c	/^int dlist_ins_end(const unsigned int data)$/;"	f
+dlist_ins_beg	dlist.c	/^int dlist_ins_beg(const int data)$/;"	f
+dlist_ins_end	dlist.c	/^int dlist_ins_end(const int data)$/;"	f
 dlist_remove	dlist.c	/^int dlist_remove(stack_t *node)$/;"	f
 dlist_s	monty.h	/^typedef struct dlist_s$/;"	s
 dlist_t	monty.h	/^} dlist_t;$/;"	t	typeref:struct:dlist_s

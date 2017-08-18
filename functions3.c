@@ -67,3 +67,15 @@ void pstr(stack_t **head, unsigned int data)
 	}
 	printf("\n");
 }
+/**
+ * chgmode - change mode: stack to que
+ * @head: Unused
+ * @data: Unused
+ */
+void chgmode(stack_t **head, unsigned int data)
+{
+	(void) head;
+	(void) data;
+
+	gs.mode *= -1;
+}

@@ -11,6 +11,7 @@ void dlist_init(void)
 	gs.fd = NULL;
 	gs.buffer = NULL;
 	gs.intarg = 0;
+	gs.mode = 1;
 }
 /**
  * dlist_remove - removes node from doubly linked list
@@ -50,7 +51,7 @@ int dlist_remove(stack_t *node)
  * @data: int to be stored in node
  * Return: 0 on sucess else 42 if malloc fails
  */
-int dlist_ins_end(const unsigned int data)
+int dlist_ins_end(const int data)
 {
 	stack_t *new_node, *node;
 
@@ -85,7 +86,7 @@ int dlist_ins_end(const unsigned int data)
  * Return: 0 on sucess else 42 if malloc fails
  */
 
-int dlist_ins_beg(const unsigned int data)
+int dlist_ins_beg(const int data)
 {
 	stack_t *new_node, *node;
 
