@@ -1,7 +1,9 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
 
+#include <ctype.h> /*isdigit*/
 #include <stdio.h>
+#include <string.h> /*strtok*/
 #include <stdlib.h>
 #include <unistd.h> /*atexit*/
 
