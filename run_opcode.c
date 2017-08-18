@@ -12,11 +12,11 @@ int run_opcode(char *buf)
 		{"mul", _mul}, {"div", _div}, {"mod", _mod}, {"rotl", rotl},
 		{"rotr", rotr}, {"pchar", pchar}, {"pstr", pstr}, {NULL, NULL}
 	};
-	char *opcode, *argint;
+	char *opcode, *argint, *delim = " \t\n\r";
 	unsigned int i;
 	int intarg = 0;
 
-	opcode = strtok(buf, " \t\n\r");
+	opcode = strtok(buf, delim);
 	if (opcode == NULL || opcode[0] == '#')/*if empty line or comment*/
 		return (0);
 	for (i = 0; cmd[i].f != NULL; i++)
@@ -25,7 +25,7 @@ int run_opcode(char *buf)
 		{
 			if (i == 0)
 			{
-				argint = strtok(NULL, " \t\n");
+				argint = strtok(NULL, delim);
 				intarg = chk_int(argint);/*chk int arg*/
 				if (intarg == -4)/*push arg is not int*/
 					myexit(-4, opcode);
