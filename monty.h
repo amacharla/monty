@@ -71,8 +71,9 @@ void pall(stack_t **stack, unsigned int data);
 void pop(stack_t **stack, unsigned int data);
 void swap(stack_t **stack, unsigned int data);
 
-/* functions.c */
+/* functions3.c */
 void rotl(stack_t **head, unsigned int data);
+void rotr(stack_t **head, unsigned int data);
 
 /* mathFunc.c */
 void _add(stack_t **head, unsigned int data);
