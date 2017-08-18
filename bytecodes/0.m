@@ -4,8 +4,8 @@ push 1 Push 1
 
 
 
-push 2
-push -3
+push 2147483647
+push -2147483648
 push -4
                    pall    
 
