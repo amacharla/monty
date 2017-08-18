@@ -11,8 +11,7 @@ int run_opcode(char *buf)
 	instruction_t cmd[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", _add}, {"nop", nop},
-		{"sub", _sub}, {"mul", _mul}, {"div", _div}, {"mod", _mod},
-		{NULL, NULL}
+		{"sub", _sub}, {"mul", _mul}, {"div", _div}, {"mod", _mod}, {"rotl", rotl}, {NULL, NULL}
 	};
 	stack_t **head = NULL;
 	char *opcode, *argint;
