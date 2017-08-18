@@ -26,7 +26,7 @@ void pall(stack_t **head, unsigned int data)
 
 	list = gs.tail;
 	if (gs.size == 0)
-		myexit(0, NULL);
+		return;
 	for (; list; list = list->prev)
 		printf("%d\n", list->n);
 }
