@@ -68,7 +68,7 @@ void swap(stack_t **head, unsigned int data)
 {
 	(void)head;
 	if (gs.size <= 2)
-		myexit(-8, NULL);
+		myexit(-8, "swap");
 
 	data = gs.tail->n;
 	gs.tail->n = gs.tail->prev->n;
