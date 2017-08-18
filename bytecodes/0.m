@@ -6,6 +6,7 @@ push 1 Push 1
 
 push 2
 push -3
+push -4
                    pall    
 
 

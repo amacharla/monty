@@ -1,6 +1,6 @@
-### Monty
+### Monty: 0x18. C - Stacks, Queues - LIFO, FIFO
 By, Anoop Macharla and Tope Agboola
-## 0x18. C - Stacks, Queues - LIFO, FIFO
+------------------------------------------------
   <h4 class="task">
     0. push, pall
       <span class="alert alert-warning mandatory-optional">
