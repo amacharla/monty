@@ -1,5 +1,4 @@
-### Monty: 0x18. C - Stacks, Queues - LIFO, FIFO
-By, Anoop Macharla and Tope Agboola
+### Monty: Byte Code Interpreter
 ------------------------------------------------
   <h4 class="task">
     0. push, pall
